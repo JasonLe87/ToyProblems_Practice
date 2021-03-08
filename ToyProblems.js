@@ -38,3 +38,17 @@ var mergeTwoLists = function(l1, l2) {
     result.next = l1 || l2
     return head.next
 };
+
+//Find All Numbers Disappeared in an Array
+
+//loop through from array.length and check from index of 1 to n
+//if it doesnt exist, add to array
+var findDisappearedNumbers = function(nums) {
+  let result = []
+  for (let i = 0; i < nums.length; i++) {
+      if (nums.indexOf(i + 1) < 0) {
+          result.push(i + 1)
+      }
+  }
+  return result
+};
