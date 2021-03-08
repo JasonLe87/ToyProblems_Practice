@@ -52,3 +52,30 @@ var findDisappearedNumbers = function(nums) {
   }
   return result
 };
+
+//Best Time to Buy and Sell Stock
+
+//brute force method
+var maxProfit = function(prices) {
+  let maximum = 0
+  for (let i = 0; i < prices.length; i++) {
+      for (let j = i + 1; j < prices.length; j++) {
+          let difference = prices[j] - prices[i]
+          if (difference >= maximum) {
+              maximum = difference
+          }
+      }
+  }
+  return maximum
+};
+
+//single loop method
+var maxProfit = function(prices) {
+  let min = prices[0]
+  let profit = 0
+  for (let i = 1; i < prices.length; i++) {
+      min = Math.min(prices[i], min)
+      profit = Math.max(profit, prices[i] - min)
+  }
+  return profit
+};
