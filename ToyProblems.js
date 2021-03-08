@@ -15,3 +15,26 @@ var removePalindromeSub = function(s) {
       }
   }
 };
+
+//Merge 2 Sorted Linked List
+
+//create an empty starting point to point to either l1 || l2
+//compare, point, next, repeat til one of them empties
+//then point to the excess
+var mergeTwoLists = function(l1, l2) {
+  let result = new ListNode()
+  let head = result
+
+    while (l1 && l2) {
+        if (l1.val < l2.val) {
+            result.next = l1
+            l1 = l1.next
+        } else {
+            result.next = l2
+            l2 = l2.next
+        }
+        result = result.next
+    }
+    result.next = l1 || l2
+    return head.next
+};
