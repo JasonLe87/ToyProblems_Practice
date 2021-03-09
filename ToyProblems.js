@@ -110,3 +110,19 @@ var diameterOfBinaryTree = function(root) {
   depthFirstSearch(root)
   return diameter
 };
+
+//Reverse String
+
+//Use placeholder to swap the front and back of string, progressing til you get to the center
+var reverseString = function(s) {
+  let front = 0
+  let back = s.length - 1
+  while (back > front) {
+      let placeholder = s[front]
+      s[front] = s[back]
+      s[back] = placeholder
+      front++
+      back--
+  }
+  return s
+};
