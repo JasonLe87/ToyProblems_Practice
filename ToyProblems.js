@@ -79,3 +79,16 @@ var maxProfit = function(prices) {
   }
   return profit
 };
+
+
+//Climbing Stairs
+
+// 0, 1, 2, 3, 5
+var climbStairs = function(n) {
+  var solutions = [0, 1, 2]
+  for (i = 3; i <= n; i++) {
+      solutions[i] = solutions[i - 1] + solutions[i - 2]
+  }
+  return solutions[n]
+};
+
