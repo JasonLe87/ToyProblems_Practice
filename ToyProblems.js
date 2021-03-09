@@ -83,7 +83,7 @@ var maxProfit = function(prices) {
 
 //Climbing Stairs
 
-// 0, 1, 2, 3, 5
+// 0, 1, 2, 3, 5, 8 , etc...... solution[i] = sum of previous two
 var climbStairs = function(n) {
   var solutions = [0, 1, 2]
   for (i = 3; i <= n; i++) {
@@ -92,3 +92,21 @@ var climbStairs = function(n) {
   return solutions[n]
 };
 
+//Diameter of Binary Tree
+
+
+//Use Math.max to constantly update update max values for left and right, to compare and update max diameter
+var diameterOfBinaryTree = function(root) {
+  let diameter = 0
+  const depthFirstSearch = (node) => {
+      if (!node) {
+          return 0
+      }
+      const left = depthFirstSearch(node.left)
+      const right = depthFirstSearch(node.right)
+      diameter = Math.max(diameter, left + right)
+      return 1 + Math.max(left, right)
+  }
+  depthFirstSearch(root)
+  return diameter
+};
