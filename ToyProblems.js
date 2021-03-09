@@ -126,3 +126,17 @@ var reverseString = function(s) {
   }
   return s
 };
+
+//Delete Node in a Linked List
+
+//If it's 1 from tail, take the tail value, and delete the next node
+//Any other situation, you take the next value, and you point to two ahead, instead of 1 ahead, replacing the one ahead
+var deleteNode = function(node) {
+  if (!node.next.next) {
+      node.val = node.next.val
+      node.next = null
+  } else {
+      node.val = node.next.val
+      node.next = node.next.next
+  }
+};
