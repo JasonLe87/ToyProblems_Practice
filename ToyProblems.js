@@ -158,3 +158,28 @@ var fizzBuzz = function(n) {
   }
   return result
 };
+
+//Non-decreasing Array
+
+//[4, 1, 2, 3]       [1, 4, 2, 3]  [3, 4, 2, 5]
+var checkPossibility = function(nums) {
+  let skip = 0
+  for (var i = 1; i < nums.length; i++) {
+      if (nums[i] < nums[i - 1]) {
+          skip++
+          if (skip > 1) {
+              return false
+          }
+          if (i === 1) {
+              continue
+          } else {
+              if (nums[i] >= nums[i - 2]) {
+                  nums[i-1] = nums[i]
+              } else {
+                  nums[i] = nums[i-1]
+              }
+          }
+      }
+  }
+  return true
+};
