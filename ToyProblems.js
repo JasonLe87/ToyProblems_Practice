@@ -244,3 +244,17 @@ var intToRoman = function(num) {
   }
   return res
 };
+
+//Convert Sorted Array to Binary Search Tree
+
+var sortedArrayToBST = function(nums) {
+  if (nums.length === 1) {
+      return new TreeNode(nums[0])
+  } else if (nums.length === 2) {
+      return new TreeNode(nums[1], new TreeNode(nums[0]))
+  }
+  const midpoint = Math.floor(nums.length / 2)
+  const left = sortedArrayToBST(nums.slice(0, midpoint))
+  const right = sortedArrayToBST(nums.slice(midpoint + 1, nums.length))
+  return new TreeNode(nums[midpoint], left, right)
+};
