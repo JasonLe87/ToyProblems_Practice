@@ -258,3 +258,15 @@ var sortedArrayToBST = function(nums) {
   const right = sortedArrayToBST(nums.slice(midpoint + 1, nums.length))
   return new TreeNode(nums[midpoint], left, right)
 };
+
+//Valid Anagram
+
+//sort and compare two strings
+var isAnagram = function(s, t) {
+    const a = s.split('').sort().join('')
+    const b = t.split('').sort().join('')
+    if (a === b) {
+        return true
+    }
+    return false
+};
