@@ -183,3 +183,64 @@ var checkPossibility = function(nums) {
   }
   return true
 };
+
+//Integer into Roman Numberal
+
+var intToRoman = function(num) {
+  let res = ''
+  while (num > 0) {
+      if (1000 <= num && num <= 3999 ) {
+          num = num - 1000
+          res = res + 'M'
+      }
+      if (900 <= num && num <= 999) {
+          num = num - 900
+          res = res + 'CM'
+      }
+      if (500 <= num && num <= 899) {
+          num = num - 500
+          res = res + 'D'
+      }
+      if (400 <= num && num <= 499) {
+          num = num - 400
+          res = res + 'CD'
+      }
+      if (100 <= num && num <= 399) {
+          num = num - 100
+          res = res + 'C'
+      }
+      if (90 <= num && num <= 99) {
+          num = num - 90
+          res = res + 'XC'
+      }
+      if (50 <= num && num <= 89) {
+          num = num - 50
+          res = res + 'L'
+      }
+      if (40 <= num && num <= 49) {
+          num = num - 40
+          res = res + 'XL'
+      }
+      if (10 <= num && num <= 39) {
+          num = num - 10
+          res = res + 'X'
+      }
+      if (num === 9) {
+          num = num - 9
+          res = res + 'IX'
+      }
+      if (5 <= num && num <= 8) {
+          num = num - 5
+          res = res + 'V'
+      }
+      if (num === 4) {
+          num = num - 4
+          res = res + 'IV'
+      }
+      if (0 < num && num <= 3) {
+          num = num - 1
+          res = res + 'I'
+      }
+  }
+  return res
+};
