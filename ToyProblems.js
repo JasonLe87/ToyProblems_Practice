@@ -270,3 +270,17 @@ var isAnagram = function(s, t) {
     }
     return false
 };
+
+//Contains Duplicate
+
+var containsDuplicate = function(nums) {
+    let result = []
+    for (let i = 0; i < nums.length; i++) {
+        if (!result[nums[i]]) {
+            result[nums[i]] = 1
+        } else {
+            return true
+        }
+    }
+    return false
+};
