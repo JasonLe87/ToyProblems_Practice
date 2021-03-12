@@ -284,3 +284,16 @@ var containsDuplicate = function(nums) {
     }
     return false
 };
+
+//Coin Change
+
+//dynamic programming;
+var coinChange = function(coins, amount) {
+    let dp = new Array(amount+1);
+    dp[0] = 0;
+    for (let i=1; i<=amount; i++) {
+        dp[i] = Number.MAX_SAFE_INTEGER;
+        coins.forEach(coin => {if (i-coin >= 0) dp[i] = Math.min(dp[i], dp[i-coin]+1)});
+    }
+    return dp[amount] === Number.MAX_SAFE_INTEGER ? -1 : dp[amount];
+};
