@@ -311,3 +311,18 @@ var maxSubArray = function(nums) {
     }
     return max;
 };
+
+//Palindrome linked list
+
+//push to array, compare forward with backwards after slicing
+var isPalindrome = function(head) {
+    let array = []
+    while(head) {
+        array.push(head.val)
+        head = head.next
+    }
+    let backwards = array.slice()
+    let forwards = array.join('')
+    backwards = backwards.reverse().join('')
+    return forwards === backwards
+};
