@@ -287,7 +287,7 @@ var containsDuplicate = function(nums) {
 
 //Coin Change
 
-//dynamic programming;
+//dynamic programming; find the best path from 0 -> amount, iteratively add only the most optimal/least amount of coins.
 var coinChange = function(coins, amount) {
     let dp = new Array(amount+1);
     dp[0] = 0;
@@ -296,4 +296,18 @@ var coinChange = function(coins, amount) {
         coins.forEach(coin => {if (i-coin >= 0) dp[i] = Math.min(dp[i], dp[i-coin]+1)});
     }
     return dp[amount] === Number.MAX_SAFE_INTEGER ? -1 : dp[amount];
+};
+
+//Max SubArray
+
+//compare cumulative vs current, and then compare again for max
+var maxSubArray = function(nums) {
+    let current = nums[0];
+    let max = nums[0];
+    for (let i = 1; i < nums.length; i++) {
+        current = current + nums[i];
+        current = Math.max(current, nums[i]);
+        max = Math.max(max, current);
+    }
+    return max;
 };
