@@ -328,7 +328,7 @@ var isPalindrome = function(head) {
 };
 
 //Valid Parenthesis
-
+//keep track of current open brackets and compare if a new close bracket appears
 var isValid = function(s) {
     let max = s.length
     let counter = 0
@@ -352,4 +352,29 @@ var isValid = function(s) {
     }
     if (box.length > 0) return false
     else return true
+};
+
+//Partition Labels
+//make character index of where letters last appear
+//make index of max partition where you update max as you move pointer forward, stopping and pushing result when you're good
+var partitionLabels = function(S) {
+    const charIndex = {};
+    for (let i = 0; i < S.length; i++) {
+        charIndex[S[i]] = i;
+    }
+    let index = 0;
+    let index2 = -1;
+    let current = 0;
+    let result = [];
+    while (index < S.length) {
+        if (current < charIndex[S[index]]) {
+            current = charIndex[S[index]];
+        }
+        if (current === index) {
+            result.push(index - index2);
+            index2 = index;
+        }
+        index++;
+    }
+    return result;
 };
