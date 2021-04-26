@@ -326,3 +326,30 @@ var isPalindrome = function(head) {
     backwards = backwards.reverse().join('')
     return forwards === backwards
 };
+
+//Valid Parenthesis
+
+var isValid = function(s) {
+    let max = s.length
+    let counter = 0
+    let box = []
+    while (counter < max) {
+        if (s[counter] === "{" || s[counter] === "[" ||  s[counter] === "(") {
+            box.unshift(s[counter])
+        } else {
+            if (box.length > 0) {
+                if (s[counter] === ")") {
+                    if (box[0] !== "(") return false
+                } else if (s[counter] === "]") {
+                    if (box[0] !== "[") return false
+                } else if (s[counter] === "}") {
+                    if (box[0] !== "{") return false
+                }
+                box.shift()
+            } else return false
+        }
+        counter++
+    }
+    if (box.length > 0) return false
+    else return true
+};
