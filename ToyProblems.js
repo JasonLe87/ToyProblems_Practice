@@ -378,3 +378,22 @@ var partitionLabels = function(S) {
     }
     return result;
 };
+
+
+//Intersection of Two Linked List
+//double while loop instead of double for loop
+//brute force method going through one linked list, before moving pointer forward on second linked list repeating process
+var getIntersectionNode = function(headA, headB) {
+    while (headA) {
+        let pointer = headB
+        while(pointer) {
+            if (headA !== pointer) {
+                pointer = pointer.next
+            } else {
+                return headA
+            }
+        }
+        headA = headA.next
+    }
+    return null
+};
