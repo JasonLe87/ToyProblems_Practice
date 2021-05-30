@@ -399,10 +399,12 @@ var getIntersectionNode = function(headA, headB) {
 };
 
 //Subsets
-//Distributive Property of sorts [1, 2, 3, 4]
+//Distributive Property of sorts, only moving forward[1, 2, 3, 4]
 // []
 // [1] [2] [3] [4]
-// [1, 2] [1, 3] [1, 4], [2, 3] [2, 4] , [3, ]
+// [1, 2] [1, 3] [1, 4], [2, 3] [2, 4], [3, 4]
+// [1, 2, 3] [1, 2, 4] , [1, 3, 4] , [2, 3, 4]
+// [1, 2, 3, 4]
 var subsets = function(nums) {
     let result = []
     var backtracking = function(current, index) {
