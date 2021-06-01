@@ -472,3 +472,24 @@ var intersect = function(nums1, nums2) {
     }
     return output
 };
+
+//Happy Number
+var isHappy = function(n) {
+    let obj = {}
+    obj[n] = true
+    while ("loop" === "loop") {
+        let sum = 0
+        let a = n.toString()
+        for (let i = 0; i < a.length; i++) {
+            sum += a[i]**2
+        }
+        if (sum === 1) {
+            return true
+        } else if (obj[sum]) {
+            return false
+        } else {
+            obj[sum] = true
+            n = sum
+        }
+    }
+};
