@@ -418,3 +418,23 @@ var subsets = function(nums) {
     return result
 };
 
+
+//Pascal's Trianle
+// copy prev row, adding current index to the one in front of it
+//while referencing prev row
+var generate = function(numRows) {
+    let counter = 1
+    let result = [[1]]
+    while (counter < numRows) {
+        let copy = result[counter - 1].slice()
+        if (counter > 1) {
+            for (let i = 0; i < copy.length - 1; i++){
+                copy[i+1] += result[counter - 1][i]
+            }
+        }
+        copy.push(1)
+        result.push(copy)
+        counter++
+    }
+    return result
+};
