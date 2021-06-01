@@ -493,3 +493,34 @@ var isHappy = function(n) {
         }
     }
 };
+
+//Removes Duplicate from sorted array in place
+//splice removes in place, 0(n)
+var removeDuplicates = function(nums) {
+    let counter = 0;
+    while (counter < (nums.length - 1)) {
+        if (nums[counter] === nums[counter + 1]) {
+            nums.splice(counter, 1)
+        } else {
+            counter++
+        }
+    }
+    return nums.length
+};
+
+//Merge Sorted Array
+//Use counter to keep track, in place solution
+var merge = function(nums1, m, nums2, n) {
+    let max = nums1.length - 1
+    while (max > -1)  {
+        if (m > 0 && n > 0 && nums1[m-1] >= nums2[n-1]) {
+            nums1[max] = nums1[m-1]
+            m--
+        } else if (n > 0){
+            nums1[max] = nums2[n-1]
+            n--
+        }
+        max--
+    }
+    return nums1
+};
