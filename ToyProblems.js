@@ -438,3 +438,37 @@ var generate = function(numRows) {
     }
     return result
 };
+
+//First Unique Character
+//While loop checking a sliced front and back at said index looking for -1
+var firstUniqChar = function(s) {
+    let counter = 0
+    while (counter < s.length) {
+        if (s.slice(0, counter).indexOf(s[counter]) < 0 && s.slice(counter+1).indexOf(s[counter]) < 0) {
+            return counter
+        }
+        counter++
+    }
+    return -1
+};
+
+//Intersection of Two Arrays
+//Add of array 1 to obj, remove values going through array 2 and push to output
+var intersect = function(nums1, nums2) {
+    if (nums1.length < nums2.length) {
+        return intersect(nums2, nums1)
+    }
+
+    let obj = {}
+    let output = []
+    for (let i = 0; i < nums1.length; i++) {
+        obj[nums1[i]] ? obj[nums1[i]]++: obj[nums1[i]] = 1
+    }
+    for (let i = 0; i < nums2.length; i++) {
+        if (obj[nums2[i]]) {
+            output.push(nums2[i])
+            obj[nums2[i]]--
+        }
+    }
+    return output
+};
